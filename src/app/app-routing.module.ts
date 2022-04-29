@@ -1,32 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ShopComponent } from './shop/shop.component';
-
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './pages/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { BoardUserComponent } from './pages/board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
-import { AboutComponent } from './pages/about/about.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { MainhomeComponent } from './pages/mainhome/mainhome.component';
+import { AboutComponent } from './Pages/about/about.component';
+import { ContactComponent } from './Pages/contact/contact.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { MenuComponent } from './Pages/menu/menu.component';
+import { MenupageComponent } from './Pages/menupage/menupage.component';
+import { ExploreComponent } from './Pages/explore/explore.component';
+import { FoodComponent } from './Pages/food/food.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent },
-  // { path: 'user', component: BoardUserComponent },
-  { path: 'mod', component: BoardModeratorComponent },
-  { path: 'admin', component: BoardAdminComponent },
-  {path: 'about', component:AboutComponent},
-  {path: 'contact', component:ContactComponent},
-  {path: 'mainhome', component:MainhomeComponent},
-  // { path: 'shop', redirectTo: '', pathMatch: 'full' },
-  { path: 'user', component: ShopComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', component:HomeComponent},
+  { path: 'menu', component:MenuComponent},
+  {path: 'menu/:id',component:MenupageComponent},
+  { path: 'about',component:AboutComponent},
+  { path: 'contact',component:ContactComponent},
+  { path: 'explore',component:ExploreComponent},
+  { path: 'food',component:FoodComponent}
+
 ];
 
 @NgModule({
@@ -34,7 +24,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-
-
-
