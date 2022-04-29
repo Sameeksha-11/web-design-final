@@ -28,10 +28,11 @@ export class AuthService {
       password
     }, httpOptions);
   }
-  confirmPayment(token:any ): Observable<any> {
+  confirmPayment(token:any, amount:any ): Observable<any> {
     console.log("213");
     return this.http.post(AUTH_API + 'payment', {
-      token
+      token,
+      amount
     }, httpOptions);
   }
 }
