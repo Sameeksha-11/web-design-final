@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 const AUTH_API = 'http://localhost:3000/user/';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', "Authorization":"Bearer "+window.sessionStorage.getItem("auth-token") })
 };
 
 @Injectable({
@@ -35,4 +35,8 @@ export class AuthService {
       amount
     }, httpOptions);
   }
+  transaction(): Observable<any> {
+    // console.log("Auth-token ***",window.sessionStorage.getItem("auth-user"));
+    return this.http.get(AUTH_API +'transaction', httpOptions);
+}
 }
