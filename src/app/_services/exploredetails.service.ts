@@ -8,7 +8,7 @@ export class ExploredetailsService {
   constructor() { }
   packageDetails1 = [
   {
-    id:1,
+    id:1, 
     packageName:"Boston Commons Public Garden",
     packageDetails:"The landscaped, 24-acre Boston Public Garden, established in 1837, was the first public botanical garden in the U.S. The Public Garden contains lovely manicured paths, the famous “Make Way for Ducklings” statues, a 4-acre pond with swans .",
     packageImg:"https://cdn.traveltripper.io/site-assets/192_866_18602/media/2018-08-29-113233/small_boston-common-guide.jpg",
@@ -78,14 +78,13 @@ export class ExploredetailsService {
     packageDetails:"A HIDDEN GEM TUCKED BEYOND Boston's downtown parks, the James P. Kelleher Rose Garden dates back to 1931 and features over 1,500 roses behind its tall green yew hedge in the Back Bay Fens.This is one of the most expensive streets. ",
     
     packageImg:"https://pbs.twimg.com/media/EcQLakgWAAUOu0j.jpg"
-  },
-  // {
-  //   id:10,
-  //   packageName:"Bunker Hill Monument",
-  //   packageDetails:"Bunker Hill Monument is a free stop for visitors seeking to commemorate our past. This 221-foot granite obelisk remembers the Battle of Bunker Hill. Rangers provide details about the history of the crucial battle, and seasonal musket-firings add a note of authenticity.",
+  }
+
+  //   id details,
+  //   packageName details,
    
-  //   packageImg:"https://philip.greenspun.com/images/20061003-boston-aerials-r44/bunker-hill-monument-2.3.jpg"
-  // }
+  //   packageImgnDetails
+
 
 
 ]
