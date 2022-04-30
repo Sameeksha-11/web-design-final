@@ -87,6 +87,56 @@ module.exports = {
             })
         }
     },
+//API for login
+    login: function(req, res) {
+        // bcrypt.compare(req.body.password,)
+        User.findOne({
+            username: req.body.username
+        }).exec(function(err, db_user) {
+            if (err) {
+                res.status(400)
+                res.json({
+                    "messgae": 'query error'
+                });
+            } else if (db_user == null) {
+                res.status(400)
+                res.json({
+                    "status": "",
+                    "error":
+                    {
+                        "message": "username does not exist"
+                    },
+                    "message": "username does not exist"
+                   
+                })
+            } else {
+                bcrypt.compare(req.body.password, db_user.password).then(doMatch => {
+                    if (doMatch) {
+                        var payLoad = {
+                            username: db_user.username,
+                            user_id: db_user._id,
+                            role: db_user.role
+                        }
+                        var token = jwt.sign(payLoad, secretKey);
+                        // res.json(db_user.role);
+                        res.status(200)
+                        res.json({
+                            "message": 'signin is successful',
+                            "accessToken": token,
+                             "role": db_user.role
+                        })
+                        console.log(db_user);
+                        // res.send(db_user);
+                    } else {
+                        res.status(400)
+                        res.json({
+                            "message": "password is incorrect"
+                        })
+                    }
+                })
+            }
+        })
+    },
 
     
 }
