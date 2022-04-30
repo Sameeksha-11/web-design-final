@@ -1,0 +1,26 @@
+.view{
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+    text-align: center;
+    float: right;
+    left: 20px;
+    background-color: rgb(211, 208, 206);
+}
+.viewr
+{
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    padding: 10px;
+    float:left;
+    background-color: rgb(211, 208, 206);
+  right: 50px;
+}
+
+.x{
+
+    position: relative;
+    left:45%;
+    top: 30%;
+}

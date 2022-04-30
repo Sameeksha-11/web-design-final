@@ -1,0 +1,25 @@
+
+
+    
+    <button *ngIf="view" type="button" class="btn btn-outline-danger x" (click)="transactions()">View Tranactions <i class="bi bi-chevron-bar-down"></i></button>
+
+
+<div *ngIf="!view">
+    <br> <br> <br> <br>
+<span class="viewr">
+    <h3 style="color: red;">Transcation ID</h3>
+    <a *ngFor="let i of idvalue">
+    
+       <p>{{ i }}</p>
+       
+       </a></span>
+      
+<span class="view">
+    <h3 style="color: red;">Amount</h3>
+    <a *ngFor="let i of amountvalue">
+
+<p>{{ i }}</p>
+
+</a>
+</span>
+</div>
