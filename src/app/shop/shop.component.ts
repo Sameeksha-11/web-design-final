@@ -25,7 +25,7 @@ export class ShopComponent implements OnInit {
   onCartItemChanged(productData:{productId: number}) {
     this.updateCartTotal();
   }
-
+// Taking Product details
   onCartUpdated(productData: {
                 productId: number,
                 productName: string,
