@@ -12,9 +12,7 @@ module.exports = {
         var regexusername = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/
         var regexpassword = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
 
-        // var username = req.body.username;
-        // var password = req.body.password;
-        // console.log(password);
+        
         // if(!req.body.username){res.json({"status":false,"message":"email is null"})}
          if (!req.body.username.trim().match(regexusername)) {
             // res.status(400);
@@ -31,6 +29,7 @@ module.exports = {
                 "message": "Please enter minimum eight characters, at least one lowercase and uppercase letter"
             });
         } else {
+            //find if the user with that username already exists
             User.find({
                 username: req.body.username
             }).exec(function(err, user) {
@@ -43,7 +42,7 @@ module.exports = {
                     res.status(400)
                     res.json({"message": 'email already exists'});
                 } else {
-
+                    
                     //Hashing the password with salt =12
                     bcrypt.hash(req.body.password, 12, function(err, hash) {
                         // console.log(hash)
