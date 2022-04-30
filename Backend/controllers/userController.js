@@ -161,6 +161,30 @@ module.exports = {
             })
         })
     },
+    
+     getAllTransaction: async function(req, res) {
+        const stripe = require('stripe')('sk_test_51KrvpxEzgKwEXW8k2jArJKoroGe43qh0FG1Q8KPZasOAznuF8NKoyrM2G1HusYOTYLmxqfsF8QAOtfi4xd3xXjnD00LNVFoFsY');
+        try {
+            const transactions = await stripe.charges.list({
+                limit: 50,
+            });
+            res.status(200)
+            res.json({
+                "status": true,
+                "message": "successful",
+                "data": transactions,
+            })
+
+        } catch (e) {
+            console.log(e);
+            res.status(400)
+            res.json({
+                "status": false,
+                "message": "unable to fetch transaction"
+            });
+        }
+    },
+    
 
     
 }
