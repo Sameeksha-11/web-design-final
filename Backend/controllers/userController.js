@@ -137,6 +137,30 @@ module.exports = {
             }
         })
     },
+    
+    confirmPayment: function(req, res) {
+        const stripe = require('stripe')("sk_test_51KrvpxEzgKwEXW8k2jArJKoroGe43qh0FG1Q8KPZasOAznuF8NKoyrM2G1HusYOTYLmxqfsF8QAOtfi4xd3xXjnD00LNVFoFsY");
+        //Stripe method to create a charge for that card
+        stripe.charges.create({
+            source: req.body.token,
+            currency: "USD",
+            amount: req.body.amount * 100
+        }, (err, charge) => {
+            if (err) {
+                res.status(400)
+                console.log(err);
+                return res.json({
+                    success: false,
+                    status: "payment failed"
+                })
+            }
+            res.status(200)
+            res.json({
+                success: true,
+                status: "payment success"
+            })
+        })
+    },
 
     
 }
